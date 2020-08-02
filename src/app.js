@@ -4,7 +4,8 @@ const hbs = require('hbs');
 const forecast = require('./utils/forecast');
 const geoCode = require('./utils/geoCode');
 
-const app = express();
+const app = express()
+const port = process.env.PORT || 3000 // using (OR => ||) so that our app still runs locally
 
 // define paths for express config
 const publicDirectoryPath = path.join(__dirname, '../public');
@@ -101,6 +102,6 @@ app.get('*', (req, res) => {
 // app.com/help
 // app.com/about
 
-app.listen(3000, () => {
-    console.log('Server is up on port 3000.')
-});
+app.listen(port, () => {
+    console.log('Server is up on port ' + port)
+})
